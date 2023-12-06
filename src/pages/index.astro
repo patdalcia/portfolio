@@ -3,12 +3,42 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/widgets/Hero.astro';
+import About from '../components/widgets/About.astro';
+import Seperator from '../components/widgets/Seperator.astro';
+import { Fragment } from 'react';
+
+
+
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<Navigation/>
-		<Hero/>
-		<h1>Title</h1>
+		<Hero>
+			<Fragment slot="title">
+				Hello, <span class="hidden xl:inline">welcome to my site, </span>
+				my name is <span class="text-red-400">Patrick.</span>
+			</Fragment>
+			<Fragment slot="subtitle">
+				<span class="hidden sm:inline">
+				  <span class="font-semibold">I</span> spend a lot of time on my computer, trying to make cool things. Sometimes I succeed.</span
+				>
+				<span class="block mb-1 sm:hidden font-bold text-blue-600">I spend a lot of time on my computer</span>
+			  </Fragment>
+		</Hero>
+		<Seperator/>
+		<About>
+			<Fragment slot="title">
+				TESTING TITLE
+			</Fragment>
+			<Fragment slot="subtitle">
+				TESTING SUBTITLE
+			</Fragment>
+			<Fragment slot="tagline">
+				TESTING TAGLINE
+			</Fragment>
+		</About>
+		<Seperator/>
+		
 	</main>
 </Layout>
