@@ -4,6 +4,7 @@ export interface Props {
 	title?: string;
   subtitle? : string;
   tagline? : string;
+
 }
 
 const {
@@ -13,7 +14,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="w-full h-screen flex flex-col justify-evenly" id="about">
+<section class="w-full h-screen flex flex-col justify-around items-center" id="about">
     <div class="w-full h-1/4 p-5 text-center">
         {
         tagline && (
@@ -33,9 +34,8 @@ const {
         }
         {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
     </div>
-    <div class="flex w-full">
-        <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
-        <div class="divider divider-horizontal">OR</div>
-        <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
+    <div class="w-11/12 h-3/5 flex justify-center">
+      <div class="card lg:card-side bg-base-100 shadow-xl w-10/12 h-full">
       </div>
+    </div>
 </section>
