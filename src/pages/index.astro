@@ -7,14 +7,16 @@ import About from '../components/widgets/About.astro';
 import Seperator from '../components/widgets/Seperator.astro';
 import { Fragment } from 'react';
 
-
+import heroImage from '../util/photos/me.jpg';
 
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<Navigation/>
-		<Hero>
+		<Hero
+			image={{ src: heroImage, alt: 'Hero Image' }}
+		>
 			<Fragment slot="title">
 				Hello, <span class="hidden xl:inline">welcome to my site, </span>
 				my name is <span class="text-red-400">Patrick.</span>
@@ -24,18 +26,19 @@ import { Fragment } from 'react';
 				  <span class="font-semibold">I</span> spend a lot of time on my computer, trying to make cool things. Sometimes I succeed.</span
 				>
 				<span class="block mb-1 sm:hidden font-bold text-blue-600">I spend a lot of time on my computer</span>
-			  </Fragment>
+			</Fragment>
 		</Hero>
 		<Seperator/>
 		<About>
 			<Fragment slot="title">
-				TESTING TITLE
+				Lets work together.
 			</Fragment>
 			<Fragment slot="subtitle">
-				TESTING SUBTITLE
+				I am an independent developer from Tucson, AZ. Always looking for new 
+				challenges, I help people make cool things online.
 			</Fragment>
 			<Fragment slot="tagline">
-				TESTING TAGLINE
+				_____________________________
 			</Fragment>
 		</About>
 		<Seperator/>

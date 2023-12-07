@@ -1,19 +1,55 @@
 ---
 import { Image } from 'astro:assets';
-import heroImage from '../../util/photos/me.jpg';
 
+export interface Props {
+	title?: string;
+  subtitle? : string;
+  image? : string | any; 
+}
 
+const {
+	title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  image = await Astro.slots.render('image'),
+} = Astro.props;
 ---
 
 
 
-<div class="hero min-h-screen bg-base-200">
+<div class="hero min-h-screen ">
   <div class="hero-content text-center">
     <div class="max-w-md">
-      <Image src={heroImage} alt="Test"/>
-
-      <h1 class="text-5xl font-bold">Hello, my name is <span class="text-red-400">Patrick</span></h1>
-      <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      {
+        title && (
+          <h1
+            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+            set:html={title}
+          />
+        )
+      }
+      {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+      {
+        image && (
+          <div class="relative m-auto max-w-5xl">
+            {typeof image === 'string' ? (
+              <Fragment set:html={image} />
+            ) : (
+              <Image
+                class="mx-auto rounded-md w-full"
+                widths={[400, 768, 1024, 2040]}
+                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                loading="eager"
+                width={1024}
+                height={576}
+                {...image}
+              />
+            )}
+          </div>
+        )
+      }
+      <div class="animate-bounce text-xl text-muted mb-0 dark:text-slate-300 uppercase pt-20">
+        scroll
+      </div>
     </div>
   </div>
 </div>
