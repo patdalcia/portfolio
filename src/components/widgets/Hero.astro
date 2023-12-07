@@ -1,35 +1,19 @@
 ---
 import { Image } from 'astro:assets';
-import heroImage from '../../assets/images/me-bw.jpg';
+import heroImage from '../../util/photos/me.jpg';
 
 
-export interface Props {
-	title?: string;
-  subtitle? : string;
-}
-
-const {
-	title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-} = Astro.props;
 ---
 
 
-<section>
-  <div class="hero min-h-90 bg-base-300">
-    <div class="hero-content text-center">
-      <div class="max-w-90 flex flex-col justify-center items-center">
-        {
-          title && (
-            <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
-              set:html={title}
-            />
-          )
-        }
-        {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
-        <Image src={heroImage} class="max-w-lg rounded-lg shadow-2xl"  alt="Me, well, a picture of me."/>
-      </div>
+
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <Image src={heroImage} alt="Test"/>
+
+      <h1 class="text-5xl font-bold">Hello, my name is <span class="text-red-400">Patrick</span></h1>
+      <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
     </div>
   </div>
-</section>
+</div>
