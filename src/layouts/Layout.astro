@@ -16,14 +16,14 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-repeat w-full h-full md:heropattern-plus-red-100">
+	<body class="bg-repeat w-full h-full ">
 		<slot />
 		<script src="../util/flowbite.min.js"></script>
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
+		/* --accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
 		--accent-gradient: linear-gradient(
@@ -31,7 +31,7 @@ const { title } = Astro.props;
 			rgb(var(--accent)),
 			rgb(var(--accent-light)) 30%,
 			white 60%
-		);
+		); */
 	}
 	html {
 		font-family: system-ui, sans-serif;
