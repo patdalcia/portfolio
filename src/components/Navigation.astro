@@ -1,5 +1,5 @@
 ---
-
+import { ThemeSwitch } from 'astro-color-scheme';
 ---
 
 <div class="navbar sticky top-0 z-10">
@@ -21,6 +21,11 @@
       <a class="btn btn-ghost text-2xl">patdalcia</a>
     </div>
     <div class="navbar-end">
+      <div class="pr-5">
+        <ThemeSwitch strategy="checkbox">
+          <input type="checkbox" class="toggle" checked />
+        </ThemeSwitch>
+        </div>
       <a class="btn">Hire Me</a>
     </div>
   </div>

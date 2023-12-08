@@ -1,5 +1,4 @@
 ---
-import { ThemeSwitch } from 'astro-color-scheme';
 interface Props { 
 	title: string;
 }
@@ -17,10 +16,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="dark:bg-gray-500 dark:text-white  bg-repeat w-full h-full md:heropattern-texture-red-100">
-		<div>
-			<ThemeSwitch defaultTheme="dark"/>
-		  </div>
+	<body class="dark:bg-gray-500 dark:text-white bg-repeat w-full h-full md:heropattern-texture-red-100">
 		<slot />
 		<script src="../util/flowbite.min.js"></script>
 	</body>
