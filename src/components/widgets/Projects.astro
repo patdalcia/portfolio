@@ -1,0 +1,35 @@
+---
+export interface Props {
+	title?: string;
+  subtitle? : string;
+  tagline? : string;
+
+}
+const {
+	title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+} = Astro.props;
+---
+
+<section class="w-screen h-fit flex flex-col justify-around items-center" id="about">
+    <div class="w-full h-1/4 p-5 text-center">
+        {
+            tagline && (
+                <p
+                  class="text-base text-red-400 dark:text-red-400 font-bold tracking-wide uppercase"
+                  set:html={tagline}
+                />
+              )
+            }
+            {
+                title && (
+                  <h1
+                    class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+                    set:html={title}
+                  />
+                )
+            }
+            {subtitle && <p class="text-xl text-muted mb-6 dark:text-white/75" set:html={subtitle} />}
+    </div>
+</section>

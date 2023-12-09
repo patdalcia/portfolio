@@ -5,6 +5,7 @@ import Navigation from '../components/Navigation.astro';
 import Hero from '../components/widgets/Hero.astro';
 import About from '../components/widgets/About.astro';
 import Seperator from '../components/widgets/Seperator.astro';
+import Projects from '../components/widgets/Projects.astro';
 import { Fragment } from 'react';
 
 import heroImage from '../util/photos/me.jpg';
@@ -42,6 +43,17 @@ import heroImage from '../util/photos/me.jpg';
 			</Fragment>
 		</About>
 		<Seperator/>
+		<Projects>
+			<Fragment slot='title'>
+				My Projects.
+			</Fragment>
+			<Fragment slot='subtitle'>
+				See what I've been up too!
+			</Fragment>
+			<Fragment slot='tagline'>
+				_____________________________
+			</Fragment>
+		</Projects>
 		
 	</main>
 </Layout>
