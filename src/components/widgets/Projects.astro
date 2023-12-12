@@ -1,19 +1,24 @@
 ---
+import { Image } from 'astro:assets';
+import CharacterModelImage from '../../assets/images/rhiannonsDude2.png'
+
 export interface Props {
 	title?: string;
   subtitle? : string;
   tagline? : string;
+  image? : string | any;
 
 }
 const {
 	title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline = await Astro.slots.render('tagline'),
+  image = await Astro.slots.render('image'),
 } = Astro.props;
 ---
 
 <section class="w-screen h-fit flex flex-col justify-around items-center" id="about">
-    <div class="w-full h-1/4 p-5 text-center">
+    <div class="w-full p-5 text-center">
         {
             tagline && (
                 <p
@@ -32,5 +37,69 @@ const {
             }
             {subtitle && <p class="text-xl text-muted mb-6 dark:text-white/75" set:html={subtitle} />}
     </div>
-    
+    <div class="w-full p-5 grid place-items-center">
+      <div class="card w-5/6 bg-base-100 shadow-xl image-full">
+        <figure>
+          {typeof image === 'string' ? (
+              <Fragment set:html={image} />
+            ) : (
+              <Image
+                class="mx-auto rounded-md w-full"
+                widths={[400, 768, 1024, 2040]}
+                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                loading="eager"
+                width={1024}
+                height={576}
+                {...image}
+              />
+            )}
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Character Models</h2>
+          <p>A random assortment of character models, check it out!</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full p-5 grid place-items-center">
+      <div class="card w-5/6 bg-base-100 shadow-xl image-full">
+        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full p-5 grid place-items-center">
+      <div class="card w-5/6 bg-base-100 shadow-xl image-full">
+        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full p-5 grid place-items-center">
+      <div class="card w-5/6 bg-base-100 shadow-xl image-full">
+        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>

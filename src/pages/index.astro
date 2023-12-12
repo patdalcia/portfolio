@@ -9,6 +9,7 @@ import Projects from '../components/widgets/Projects.astro';
 import { Fragment } from 'react';
 
 import heroImage from '../util/photos/me.jpg';
+import characterModelImages from '../assets/images/rhiannonsDude2.png';
 
 ---
 
@@ -43,7 +44,7 @@ import heroImage from '../util/photos/me.jpg';
 			</Fragment>
 		</About>
 		<Seperator/>
-		<Projects>
+		<Projects image={{ src: characterModelImages, alt: 'Character Model' }}>
 			<Fragment slot='title'>
 				My Projects.
 			</Fragment>
