@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="w-screen h-fit flex flex-col justify-around items-center" id="about">
+<section class="w-screen h-fit flex flex-col justify-around items-center -z-50" id="about">
     <div class="w-full p-5 text-center">
         {
             tagline && (
@@ -40,9 +40,9 @@ const {
             }
             {subtitle && <p class="text-xl text-muted mb-6 dark:text-white/75" set:html={subtitle} />}
     </div>
-    <div class="w-full p-5 grid place-items-center">
+    <!-- <div class="w-full p-5 grid place-items-center">
       <div class="card w-full md:w-5/6 bg-base-100 shadow-xl image-full">
-        <figure>
+        <figure class="">
           {typeof image === 'string' ? (
               <Fragment set:html={image} />
             ) : (
@@ -130,6 +130,57 @@ const {
           <div class="card-actions justify-end">
             <button class="btn btn-primary">Details</button>
           </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="grid grid-col-1 w-full gap-5 place-items-center">
+      <div class="card card-side w-5/6 pl-5 shadow-xl glass">
+        <div class="card-body">
+          <figure>
+            {typeof image === 'string' ? (
+                <Fragment set:html={image} />
+              ) : (
+                <Image
+                  class="mx-auto rounded-md w-full"
+                  widths={[400, 768, 1024, 2040]}
+                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                  loading="eager"
+                  width={1024}
+                  height={576}
+                  {...image}
+                />
+              )}
+          </figure>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary w-1/2">Details</button>
+            <button class="btn btn-primary w-1/2">Details</button>
+          </div>
+          <h2 class="card-title">Character Models</h2>
+          <p>A random assortment of high quality character models.</p>
+        </div>
+      </div>
+      <div class="card card-side w-5/6 pl-5 shadow-xl glass">
+        <div class="card-body">
+          <figure>
+            {typeof image === 'string' ? (
+                <Fragment set:html={image} />
+              ) : (
+                <Image
+                  class="mx-auto rounded-md w-full"
+                  widths={[400, 768, 1024, 2040]}
+                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                  loading="eager"
+                  width={1024}
+                  height={576}
+                  {...modelingRoomImage}
+                />
+              )}
+          </figure>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary w-1/2">Details</button>
+          </div>
+          <h2 class="card-title">Game Ready Assets</h2>
+          <p>Check out the Modelling my room project for some high quality, procedurally generated assets. </p>
         </div>
       </div>
     </div>
