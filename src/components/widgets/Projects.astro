@@ -41,7 +41,7 @@ const {
             {subtitle && <p class="text-xl text-muted mb-6 dark:text-white/75" set:html={subtitle} />}
     </div>
     <div class="w-full p-5 grid place-items-center">
-      <div class="card w-full bg-base-100 shadow-xl image-full">
+      <div class="card w-full md:w-5/6 bg-base-100 shadow-xl image-full">
         <figure>
           {typeof image === 'string' ? (
               <Fragment set:html={image} />
@@ -68,7 +68,7 @@ const {
     </div>
 
     <div class="w-full p-5 grid place-items-center">
-      <div class="card w-full bg-base-100 shadow-xl image-full">
+      <div class="card w-full md:w-5/6 bg-base-100 shadow-xl image-full">
         <figure>
           {typeof gameAssetsImage === 'string' ? (
           <Fragment set:html={image} />
@@ -95,7 +95,7 @@ const {
     </div>
 
     <div class="w-full p-5 grid place-items-center">
-      <div class="card w-full bg-base-100 shadow-xl image-full">
+      <div class="card w-full md:w-5/6 bg-base-100 shadow-xl image-full">
         <figure>
           {typeof modelingRoomImage === 'string' ? (
           <Fragment set:html={image} />
@@ -122,7 +122,7 @@ const {
     </div>
 
     <div class="w-full p-5 grid place-items-center">
-      <div class="card w-5/6 bg-base-100 shadow-xl image-full">
+      <div class="card w-5/6 sm:w-5/6 bg-base-100 shadow-xl image-full">
         <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
         <div class="card-body">
           <h2 class="card-title">Shoes!</h2>
