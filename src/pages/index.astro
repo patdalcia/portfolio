@@ -10,6 +10,8 @@ import { Fragment } from 'react';
 
 import heroImage from '../util/photos/me.jpg';
 import characterModelImages from '../assets/images/rhiannonsDude2.png';
+import gameAssetsImage from '../assets/images/plantsCloseUp.png';
+import modelingRoomImage from '../assets/images/roomSide.png';
 
 ---
 
@@ -44,7 +46,7 @@ import characterModelImages from '../assets/images/rhiannonsDude2.png';
 			</Fragment>
 		</About>
 		<Seperator/>
-		<Projects image={{ src: characterModelImages, alt: 'Character Model' }}>
+		<Projects image={{ src: characterModelImages, alt: 'Character Model' }} gameAssetsImage={{ src: gameAssetsImage, alt: 'Game Assets'}} modelingRoomImage={{ src: modelingRoomImage, alt: '3d Model of My Room'}}>
 			<Fragment slot='title'>
 				My Projects.
 			</Fragment>
