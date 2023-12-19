@@ -18,6 +18,10 @@ const {
   gameAssetsImage = await Astro.slots.render('gameAssetsImage'),
   modelingRoomImage = await Astro.slots.render('modelingRoomImage'),
 } = Astro.props;
+
+function redirect() {
+  Astro.redirect('/test');
+}
 ---
 
 <section class="w-screen h-fit flex flex-col justify-around items-center -z-50" id="about">
@@ -40,99 +44,6 @@ const {
             }
             {subtitle && <p class="text-xl text-muted mb-6 dark:text-white/75" set:html={subtitle} />}
     </div>
-    <!-- <div class="w-full p-5 grid place-items-center">
-      <div class="card w-full md:w-5/6 bg-base-100 shadow-xl image-full">
-        <figure class="">
-          {typeof image === 'string' ? (
-              <Fragment set:html={image} />
-            ) : (
-              <Image
-                class="mx-auto rounded-md w-full"
-                widths={[400, 768, 1024, 2040]}
-                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                loading="eager"
-                width={1024}
-                height={576}
-                {...image}
-              />
-            )}
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">Character Models</h2>
-          <p>A random assortment of character models, check it out!</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Details</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-full p-5 grid place-items-center">
-      <div class="card w-full md:w-5/6 bg-base-100 shadow-xl image-full">
-        <figure>
-          {typeof gameAssetsImage === 'string' ? (
-          <Fragment set:html={image} />
-        ) : (
-          <Image
-            class="mx-auto rounded-md w-full"
-            widths={[400, 768, 1024, 2040]}
-            sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-            loading="eager"
-            width={1024}
-            height={576}
-            {...gameAssetsImage}
-          />
-        )}
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">Game Ready Assets</h2>
-          <p>High quality, procedurally textured 3D Models</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Details</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-full p-5 grid place-items-center">
-      <div class="card w-full md:w-5/6 bg-base-100 shadow-xl image-full">
-        <figure>
-          {typeof modelingRoomImage === 'string' ? (
-          <Fragment set:html={image} />
-        ) : (
-          <Image
-            class="mx-auto rounded-md w-full"
-            widths={[400, 768, 1024, 2040]}
-            sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-            loading="eager"
-            width={1024}
-            height={576}
-            {...modelingRoomImage}
-          />
-        )}
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Details</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-full p-5 grid place-items-center">
-      <div class="card w-5/6 sm:w-5/6 bg-base-100 shadow-xl image-full">
-        <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Details</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div class="grid grid-col-1 w-full gap-5 place-items-center">
       <div class="card card-side w-5/6 pl-5 shadow-xl glass">
         <div class="card-body">
@@ -152,8 +63,10 @@ const {
               )}
           </figure>
           <div class="card-actions justify-end">
-            <button class="btn opacity-50 w-1/2">Details</button>
-            <button class="btn btn-primary w-1/2">Details</button>
+            
+            <!-- <button onclick="" class="btn opacity-50 w-1/2">Details</button> -->
+            <!-- <button class="btn btn-primary w-1/2" onclick="redirect()">Details</button> -->
+            <a href="/pages/test">Test</a>
           </div>
           <h2 class="card-title">Character Models</h2>
           <p>A random assortment of high quality character models.</p>
