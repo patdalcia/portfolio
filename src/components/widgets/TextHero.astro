@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import TypeWriter from '../utils/useTypewriter';
+
+export interface Props {
+	title?: string;
+  subtitle? : string;
+  image? : string | any; 
+}
+
+const {
+	title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  image = await Astro.slots.render('image'),
+} = Astro.props;
+
+
+---
+<div class="hero min-h-screen z-5" id="hero">
+  <div class="hero-content text-center">
+    <div class="max-w-5xl">
+        <TypeWriter text="Is this working?"/>
+      {
+        title && (
+          <h1
+            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-white"
+            set:html={title}
+            id="typewriter-text"
+          />
+        )
+      }
+      {subtitle && <p class="text-xl text-muted mb-6 dark:text-white/90 text-black/50" set:html={subtitle} />}
+      {
+        image && (
+          <div class="relative m-auto max-w-md">
+            {typeof image === 'string' ? (
+              <Fragment set:html={image} />
+            ) : (
+              <Image
+                class="mx-auto rounded-md w-full"
+                widths={[400, 768, 1024, 2040]}
+                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                loading="eager"
+                width={1024}
+                height={576}
+                {...image}
+              />
+            )}
+          </div>
+        )
+      }
+      <div class="animate-bounce text-xl text-muted mb-0 dark:text-white uppercase pt-20">
+        scroll
+      </div>
+    </div>
+  </div>
+</div>
