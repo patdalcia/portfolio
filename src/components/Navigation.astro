@@ -1,11 +1,13 @@
 ---
 import { ThemeSwitch } from 'astro-color-scheme';
+import { string } from 'astro/zod';
 
 export interface Props {
 	firstLink?: string;
   secondLink? : string;
   thirdLink? : string | any; 
   buttonLink? : string;
+  buttonLocation : string;
 }
 
 const {
@@ -13,6 +15,7 @@ const {
   secondLink = await Astro.slots.render('aboutLink'),
   thirdLink = await Astro.slots.render('projectLink'),
   buttonLink = await Astro.slots.render('buttonLink'),
+  buttonLocation = await Astro.slots.render('buttonLocation'),
 } = Astro.props;
 ---
 
@@ -64,7 +67,7 @@ const {
           buttonLink && (
             <a
               class="btn"
-              href={import.meta.env.BASE_URL + '/hire'}
+              href={import.meta.env.BASE_URL + buttonLocation}
               set:html={buttonLink}
             />
           )
