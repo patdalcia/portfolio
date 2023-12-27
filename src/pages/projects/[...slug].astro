@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/widgets/Footer.astro';
+
+export async function getStaticPaths() {
+    const projects = await getCollection('projects');
+    return projects.map((project => {
+        const { slug } = project;
+
+        return {
+            params: { slug },
+            props: project,
+        };
+    }));
+}
+
+type Props = CollectionEntry<'projects'>;
+
+const project: Props = Astro.props;
+const { Content } = await project.render();
+const {
+    data: { description, title },
+} = project;
+---
+<Layout 
+    title='Showcase',
+    description='A Project showcase page.'
+    >
+    <main>
+        <Navigation
+            buttonLink='Home',
+            buttonLocation='/'
+        />
+        <div class="w-screen p-4 flex flex-col justify-center align-center">
+            <article class="prose prose-slate prose-xl prose-img:rounded-lg text-center">
+                <Content />
+            </article>
+        </div>
+        <article class="w-screen bg-red-400 flex flex-col justify-center align-center prose prose-xl text-center p-5">
+            
+        </article>
+        <Footer/>
+    </main>
+</Layout>

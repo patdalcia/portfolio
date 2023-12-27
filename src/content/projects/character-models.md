@@ -3,10 +3,8 @@ title: "Character-Models"
 description: "A random assortment of character models"
 ---
 
-### Character Models
-
-This is a test body. This text will be updated soon.
-
-- This is a test body. This text will be updated soon.
-- This is a test body. This text will be updated soon.
-- This is a test body. This text will be updated soon.
+Character Models
+================
+![A 3-D Modeled character](../../assets/images/rhiannonsDude2.png)
+A random assortment of character models
+---------------------------------------
