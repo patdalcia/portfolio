@@ -1,7 +1,7 @@
 ---
 title: Campfire
 publishDate: 2024-11-18 15:41:30
-img: /portfolio/assets/campfire.png
+img: /portfolio/assets/campfire.PNG
 img_alt: Pearls of silky soft white cotton, bubble up under vibrant lighting
 description: |
   We developed a virtual showcase for the softest bedding imaginable.
