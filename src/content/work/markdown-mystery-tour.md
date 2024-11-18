@@ -1,7 +1,7 @@
 ---
 title: 3D Modelling the Earth
 publishDate: 2024-11-18 15:30:15
-img: /assets/Earth.png
+img: /portfolio/assets/Earth.png
 img_alt: A stunning detailed 3D rendered view of the Earth from space.
 description: |
   I have created a 3D model of the planet earth. 
