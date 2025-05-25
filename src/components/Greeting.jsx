@@ -3,7 +3,7 @@ import FrontShot from '../assets/hero/FrontShot.png';
 import TopShot from '../assets/hero/TopShot.png';
 import CloseShot from '../assets/hero/CloseShot.png';
 import PotStill from '../assets/hero/PotStill.png';
-const heroImages = [FrontShot, TopShot, CloseShot, PotStill];
+const heroImages = [FrontShot];
 export default function Greeting({}) {
 
   const randomMessage = () => heroImages[(Math.floor(Math.random() * heroImages.length))];
