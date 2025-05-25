@@ -1,8 +1,8 @@
 import { useState } from 'preact/hooks';
-import FrontShot from '../assets/hero/FrontShot.png';
-import TopShot from '../assets/hero/TopShot.png';
-import CloseShot from '../assets/hero/CloseShot.png';
-import PotStill from '../assets/hero/PotStill.png';
+import FrontShot from '../assets/hero/FrontShot-min.png';
+import TopShot from '../assets/hero/TopShot-min.png';
+import CloseShot from '../assets/hero/CloseShot-min.png';
+import PotStill from '../assets/hero/PotStill-min.png';
 const heroImages = [FrontShot, CloseShot, TopShot, PotStill];
 export default function Greeting({}) {
 
