@@ -2,6 +2,8 @@
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Greeting from '../components/Greeting';
+import Footer from '../components/Footer.astro';
+import Test from '../components/test.astro';
 
 import { getImage } from 'astro:assets';
 
@@ -17,5 +19,7 @@ const optimizedPotStill = await getImage({ src: PotStill });
 
 <Layout>
 	 <Greeting client:load heroImages={[ optimizedFrontShot, optimizedTopShot, optimizedCloseShot, optimizedPotStill ]}/>
-	<Welcome />
+	 <Footer />
 </Layout>
+
+
