@@ -2,42 +2,17 @@
 import astroLogo from "../assets/astro.svg";
 import background from "../assets/background.svg";
 import heroImage from "../assets/PotStill.png";
+import Greeting from '../components/Greeting';
 
-const heroVideoIndex = [0, 1, 2, 3, 4, 5]
-const selectedIndex = Math.floor(Math.random() * heroVideoIndex.length)
+const heroVideoIndex = [0, 1, 2, 3, 4, 5];
+const selectedIndex = Math.floor(Math.random() * heroVideoIndex.length);
 
 ---
-{selectedIndex}
+
 <div id="container">
 	<img id="background" src={background.src} alt="" fetchpriority="high" />
 	<main>
-		<div class="hero bg-base-200 min-h-screen">
-			<div class="hero-content flex-col lg:flex-row">
-				<!-- <img
-					src="https://github.com/patdalcia/portfolio/raw/refs/heads/main/src/assets/PotShot.mp4"
-					class="max-w-sm rounded-lg shadow-2xl"
-				/> -->
-				<video
-					playsinline
-					autoplay
-					muted
-					loop
-					poster="polina.jpg"
-					id="bgvid"
-				>
-					<source src="https://github.com/patdalcia/portfolio/raw/refs/heads/main/src/assets/PotShot.mp4" type="video/mp4" />
-				</video>
-				<div>
-					<h1 class="text-5xl font-bold">Box Office News!</h1>
-					<p class="py-6">
-						Provident cupiditate voluptatem et in. Quaerat fugiat ut
-						assumenda excepturi exercitationem quasi. In deleniti
-						eaque aut repudiandae et a id nisi.
-					</p>
-					<button class="btn btn-primary">Get Started</button>
-				</div>
-			</div>
-		</div>
+		
 	</main>
 </div>
 
