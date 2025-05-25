@@ -3,12 +3,19 @@ import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Greeting from '../components/Greeting';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { getImage } from 'astro:assets';
+
+import FrontShot from '../assets/hero/FrontShot-min.png';
+import TopShot from '../assets/hero/TopShot-min.png';
+import CloseShot from '../assets/hero/CloseShot-min.png';
+import PotStill from '../assets/hero/PotStill-min.png';
+const optimizedFrontShot = await getImage({ src: FrontShot });
+const optimizedTopShot = await getImage({ src: TopShot });
+const optimizedCloseShot = await getImage({ src: CloseShot });
+const optimizedPotStill = await getImage({ src: PotStill });
 ---
 
 <Layout>
-	<!-- <Greeting client:load messages={["https://github.com/patdalcia/portfolio/blob/main/src/assets/hero/CloseShot.png?raw=true", "https://github.com/patdalcia/portfolio/blob/main/src/assets/hero/FrontShot.png?raw=true", "https://github.com/patdalcia/portfolio/blob/main/src/assets/hero/PotStill.png?raw=true", "https://github.com/patdalcia/portfolio/blob/main/src/assets/hero/TopShot.png?raw=true"]} /> -->
-	 <Greeting client:load />
+	 <Greeting client:load heroImages={[ optimizedFrontShot, optimizedTopShot, optimizedCloseShot, optimizedPotStill ]}/>
 	<Welcome />
 </Layout>
