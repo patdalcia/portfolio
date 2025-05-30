@@ -1,3 +1,5 @@
+import React from "react";
+
 import { getImage } from "astro:assets";
 import FrontShot from "../../assets/hero/FrontShot-min.png";
 import TopShot from "../../assets/hero/TopShot-min.png";
@@ -14,8 +16,9 @@ const Images = [
     optimizedCloseShot,
     optimizedPotStill,
 ];
+const selectedImage = optimizedPotStill;
 
-const selectedImage = Images[Math.floor(Math.random() * Images.length)];
+// const selectedImage = Images[Math.floor(Math.random() * Images.length)];
 
 export default function Hero(props) {
     return (
