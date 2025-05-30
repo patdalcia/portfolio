@@ -2,10 +2,6 @@
 
 ---
 
-<div id="Hero" class="min-h-screen bg-center bg-cover bg-blend-multiply">
-    <slot name="HeroContent" />
-</div>
-
 <script>
     import { getImage } from "astro:assets";
     import FrontShot from "../assets/hero/FrontShot-min.png";
@@ -36,3 +32,9 @@
         hero.style.backgroundColor = '#880808'; // <- no error
     }
 </script>
+
+<div id="Hero" class="min-h-screen bg-center bg-cover">
+    <slot name="HeroContent" />
+</div>
+
+
