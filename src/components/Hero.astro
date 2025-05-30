@@ -1,81 +1,38 @@
 ---
-import TextPressure from "../components/react/TextPressure";
-import Typewriter from "typewriter-effect";
 
-import { getImage } from "astro:assets";
-import FrontShot from "../assets/hero/FrontShot-min.png";
-import TopShot from "../assets/hero/TopShot-min.png";
-import CloseShot from "../assets/hero/CloseShot-min.png";
-import PotStill from "../assets/hero/PotStill-min.png";
-const optimizedFrontShot = await getImage({ src: FrontShot });
-const optimizedTopShot = await getImage({ src: TopShot });
-const optimizedCloseShot = await getImage({ src: CloseShot });
-const optimizedPotStill = await getImage({ src: PotStill });
-
-const Images = [
-    optimizedFrontShot,
-    optimizedTopShot,
-    optimizedCloseShot,
-    optimizedPotStill,
-];
-const selectedImage = Images[Math.floor(Math.random() * Images.length)];
-
-const WelcomeMessages = [
-    "Who are you and how did you find me here?",
-    "If you're gonna look around, be polite and enjoy yourself.",
-    "Tip: Wave your mouse around the 'Hello!' message. Kinda cool yeah?",
-];
 ---
 
-<div
-    class="min-h-screen w-full bg-no-repeat bg-cover bg-center bg-blend-multiply flex-col"
-    style={{
-        backgroundImage: `url(${selectedImage.src})`,
-        backgroundColor: `#808080`,
-    }}
->
-    <div class="hero flex flex-col">
-        {/* <div class="hero-overlay"></div> */}
-        <div
-            class="hero-content text-neutral-content text-center min-h-screen flex-col justify-items-center"
-        >
-            <div class="w-3xs md:w-md h-full">
-                <h1 class="hidden mb-5 text-5xl font-bold pb-10">HELLO!</h1>
-                <div
-                    class="block w-full"
-                    style={{ position: "relative", height: "300px" }}
-                >
-                    <TextPressure
-                        client:load
-                        text="Hello!"
-                        flex={true}
-                        alpha={false}
-                        stroke={false}
-                        width={true}
-                        weight={true}
-                        italic={true}
-                        textColor="#ffffff"
-                        strokeColor="#ff0000"
-                        minFontSize={100}
-                    />
-                </div>
-
-                <div class="h-10">
-                    <p class="mb-5 text-2xl">
-                        <Typewriter
-                            client:load
-                            options={{
-                                strings: WelcomeMessages,
-                                autoStart: true,
-                                loop: true,
-                            }}
-                        />
-                    </p>
-                </div>
-                <!-- <button class="btn btn-primary">Get Started</button> -->
-                 <!-- <div class="motion-safe:animate-bounce flex justify-center">Scroll Down</div> -->
-            </div>
-        </div>
-    </div>
-    
+<div id="Hero" class="min-h-screen bg-center bg-cover bg-blend-multiply">
+    <slot name="HeroContent" />
 </div>
+
+<script>
+    import { getImage } from "astro:assets";
+    import FrontShot from "../assets/hero/FrontShot-min.png";
+    import TopShot from "../assets/hero/TopShot-min.png";
+    import CloseShot from "../assets/hero/CloseShot-min.png";
+    import PotStill from "../assets/hero/PotStill-min.png";
+    const optimizedFrontShot = await getImage({ src: FrontShot });
+    const optimizedTopShot = await getImage({ src: TopShot });
+    const optimizedCloseShot = await getImage({ src: CloseShot });
+    const optimizedPotStill = await getImage({ src: PotStill });
+
+    const Images = [
+        optimizedFrontShot,
+        optimizedTopShot,
+        optimizedCloseShot,
+        optimizedPotStill,
+    ];
+
+    const selectedImage = Images[Math.floor(Math.random() * Images.length)];
+
+    const hero = document.getElementById("Hero");
+    if (hero === null) {
+        alert("oops");
+    } else {
+        // since you've done the nullable check
+        // TS won't complain from this point on
+        hero.style.backgroundImage = `url('${optimizedPotStill.src}')`; // <- no error
+        hero.style.backgroundColor = '#880808'; // <- no error
+    }
+</script>
