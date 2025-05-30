@@ -12,6 +12,16 @@ import ScrollFloat from "../components/react/ScrollFloat";
 import About from "../components/react/About";
 import Background from "../components/react/Background";
 
+import { getImage } from "astro:assets";
+import FrontShot from "../assets/hero/FrontShot-min.png";
+import TopShot from "../assets/hero/TopShot-min.png";
+import CloseShot from "../assets/hero/CloseShot-min.png";
+import PotStill from "../assets/hero/PotStill-min.png";
+const optimizedFrontShot = await getImage({ src: FrontShot });
+const optimizedTopShot = await getImage({ src: TopShot });
+const optimizedCloseShot = await getImage({ src: CloseShot });
+const optimizedPotStill = await getImage({ src: PotStill });
+
 
 const WelcomeMessages = [
 	"Who are you and how did you find me here?",
@@ -30,14 +40,13 @@ const WelcomeMessages = [
 			optimizedPotStill,
 		]}
 	/> -->
-	<!-- <Hero client:load >
-		<Fragment slot="HeroContent" >
-			Testing It worked
+	<Hero client:load >
+		<Fragment slot="test" >
+			It WORKED FOR NOW. TIME FOR SLEEP
 		</Fragment>
-	</Hero> -->
-	
+	</Hero>
 
 	<Seperator />
-	<About client:load />
+	<About client:visible />
 	<Footer />
 </Layout>
